@@ -59,6 +59,9 @@ class BurnInSpider(scrapy.Spider):
             home = assert(splash:select("#home-btn > span.MuiIconButton-label > span"))
             home:mouse_click()
             assert(splash:wait(2))
+            expand = assert(splash:select("#expand-all-btn > span.MuiButton-label"))
+            expand:mouse_click()
+            assert(splash:wait(1))
             splash:set_viewport_full()
             return {{
                 html = splash:html()
